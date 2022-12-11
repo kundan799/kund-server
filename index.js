@@ -1,9 +1,9 @@
 const express = require("express");
 const cors = require("cors");
-const connect = require("./comfig/db");
+const connect = require("./src/comfig/db");
 
-const registerRouter = require("./routes/register");
-const loginRouter = require("./routes/login");
+const registerRouter = require("./src/routes/register");
+const loginRouter = require("./src/routes/login");
 //const { middleware } = require("./Middleware/auth.middleware.js");
 
 const app = express();
