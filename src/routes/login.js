@@ -21,28 +21,28 @@ const AuthModel = require('../Models/auth.js');
 //         res.send({msg: "wrong email!"});
 //     }
 // });
-loginRouter.post("/",async(req,res)=>{
-    const {email,password}=req.body;
-    const user=await AuthModel.findOne({email})
-    const hashed_password=user.password;
-    const user_id=user._id;
-    console.log(user);
-    console.log(user_id);
-    bcrypt.compare(password, hashed_password, function(err, result) {
-        // result == true
-        if(err){
-            res.send("Something Went Wrong,Try again Later");
-        }
+// loginRouter.post("/",async(req,res)=>{
+//     const {email,password}=req.body;
+//     const user=await AuthModel.findOne({email})
+//     const hashed_password=user.password;
+//     const user_id=user._id;
+//     console.log(user);
+//     console.log(user_id);
+//     bcrypt.compare(password, hashed_password, function(err, result) {
+//         // result == true
+//         if(err){
+//             res.send("Something Went Wrong,Try again Later");
+//         }
        
-        if(result){
-            const token=jwt.sign({user_id},"secretcode1234");
-            res.send({"msg":"Login SuccessFully",token});
-        }
-        else{
-            res.send("Login Failed");
-        }
-    });
+//         if(result){
+//             const token=jwt.sign({user_id},"secretcode1234");
+//             res.send({"msg":"Login SuccessFully",token});
+//         }
+//         else{
+//             res.send("Login Failed");
+//         }
+//     });
 
-})
+// })
 
-module.exports = loginRouter;
+// module.exports = loginRouter;
